@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bhjm7g1qmymjx"]
+
+[ext_resource type="Script" uid="uid://c1gurxh0fyd2u" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bjofepxv24rss" path="res://textures/menu/mainmenu.png" id="1_l6cm7"]
+
+[node name="main menu" type="Control" unique_id=1095836301 node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+button = NodePath("Button")
+
+[node name="Label" type="Label" parent="." unique_id=441823557]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 318.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1020194803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l6cm7")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1892325351]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 99.0
+offset_right = 340.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 60
+text = "Title card
+"
+
+[node name="Button" type="Button" parent="." unique_id=760725093]
+layout_mode = 0
+offset_top = 242.0
+offset_right = 289.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 40
+text = "Start game 
+"
+alignment = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

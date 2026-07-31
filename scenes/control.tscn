@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dcm4r84jp5glo"]
+
+[ext_resource type="Script" uid="uid://dwcs6h0iyy1un" path="res://scripts/control.gd" id="1_0fbet"]
+[ext_resource type="PackedScene" uid="uid://km8be5rfr3ub" path="res://scenes/marker.tscn" id="2_62e2m"]
+[ext_resource type="PackedScene" uid="uid://3pgict55k4os" path="res://scenes/GameClock.tscn" id="2_ee4bf"]
+[ext_resource type="PackedScene" uid="uid://cbwma5cmh73aw" path="res://scenes/player.tscn" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://cjsmpi55pc76w" path="res://scripts/bounds.gd" id="5_tjwpk"]
+[ext_resource type="Script" uid="uid://c7n7xn0x1cquk" path="res://scripts/sceneswitcher.gd" id="6_lpubu"]
+
+[node name="Control" type="Control" unique_id=1424041087 node_paths=PackedStringArray("clock")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+clock = NodePath("Gameclock")
+
+[node name="Gameclock" parent="." unique_id=843309788 instance=ExtResource("2_ee4bf")]
+
+[node name="cords" type="Label" parent="." unique_id=1050385732]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="marker" parent="." unique_id=305016637 instance=ExtResource("2_62e2m")]
+position = Vector2(677, 221)
+
+[node name="CharacterBody2D" parent="." unique_id=1281983220 node_paths=PackedStringArray("clock") instance=ExtResource("3_qtu10")]
+position = Vector2(372, 106)
+clock = NodePath("../Gameclock")
+
+[node name="time" type="Label" parent="." unique_id=44205679]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="bounds" type="Node" parent="." unique_id=1214889528 node_paths=PackedStringArray("player", "clock")]
+script = ExtResource("5_tjwpk")
+player = NodePath("../CharacterBody2D")
+clock = NodePath("../Gameclock")
+
+[node name="sceneswitcher" type="Node" parent="." unique_id=2081893477 node_paths=PackedStringArray("bounds")]
+script = ExtResource("6_lpubu")
+bounds = NodePath("../bounds")

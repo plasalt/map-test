@@ -1,0 +1,21 @@
+{
+  "start": {
+	"text": "Hello, beginner. Welcome to the world.",
+	"next": "warning"
+  },
+  "warning": {
+	"text": "It's a dangerous place out here. Will you be careful?",
+	"options": [
+	  {"text": "`yuh i guess", "target": "cautious_end"},
+	  {"text": "hell naw", "target": "brave_end"}
+	]
+  },
+  "cautious_end": {
+	"text": "you are a bum",
+	"next": "end"
+  },
+  "brave_end": {
+	"text": "yuh gonna die",
+	"next": "end"
+  }
+}

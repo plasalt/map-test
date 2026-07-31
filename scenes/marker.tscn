@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://km8be5rfr3ub"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ovyla"]
+
+[node name="marker" type="Node2D" unique_id=305016637]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449498554]
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_ovyla")

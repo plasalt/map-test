@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cbwma5cmh73aw"]
+
+[ext_resource type="Script" uid="uid://cl5nin7ml434f" path="res://scripts/player.gd" id="1_4flbx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sh265"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1281983220]
+script = ExtResource("1_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1569921047]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_sh265")
+
+[node name="Timer" type="Timer" parent="." unique_id=1645674455]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
