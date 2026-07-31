@@ -40,13 +40,19 @@ text = "Title card
 "
 
 [node name="Button" type="Button" parent="." unique_id=760725093]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.085
+anchor_right = 0.24700001
+anchor_bottom = 0.045000006
+offset_left = 98.92
 offset_top = 242.0
-offset_right = 289.0
-offset_bottom = 305.0
+offset_right = 0.45599365
+offset_bottom = 275.84
 theme_override_font_sizes/font_size = 40
 text = "Start game 
 "
 alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
