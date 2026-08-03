@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c1gurxh0fyd2u" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bjofepxv24rss" path="res://textures/menu/mainmenu.png" id="1_l6cm7"]
 
-[node name="main menu" type="Control" unique_id=1095836301 node_paths=PackedStringArray("button")]
+[node name="main menu" type="Control" unique_id=1095836301]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
-button = NodePath("Button")
 
 [node name="Label" type="Label" parent="." unique_id=441823557]
 layout_mode = 0

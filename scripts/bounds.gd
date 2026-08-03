@@ -24,6 +24,8 @@ class BoxTrigger:
 	var reset_distance := -1.0
 	var dialogue := true
 	var dialoguefile := ""
+	var speakername := ""
+	var Background := ""
 	
 var boxes: Array[BoxTrigger] = []
 
@@ -82,7 +84,9 @@ func save_triggers_to_gamedata():
 			"reset_time": p.reset_time,
 			"reset_distance": p.reset_distance,
 			"dialogue": p.dialogue,
-			"dialoguefile": p.dialoguefile
+			"dialoguefile": p.dialoguefile,
+			"speakername": p.speakername,
+			"Background": p.Background
 		})
 
 func load_triggers_from_gamedata():
@@ -102,6 +106,8 @@ func load_triggers_from_gamedata():
 		p.reset_time = data.reset_time
 		p.reset_distance = data.reset_distance
 		p.dialoguefile = data.dialoguefile
+		p.speakername = data.speakername 
+		p.Background = data.Background
 
 		boxes.append(p)
 

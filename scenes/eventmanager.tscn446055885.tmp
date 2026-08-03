@@ -73,12 +73,5 @@ offset_bottom = 37.0
 text = "next line
 "
 
-[node name="Background" type="TextureRect" parent="." unique_id=1182291087]
-z_index = -1
-layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 647.0
-expand_mode = 3
-
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="nextline" to="." method="_on_nextline_pressed"]

@@ -1,15 +1,20 @@
 extends Node	
 
 @export var dialogue_manager: CanvasLayer
+@onready var background = $Background
 
 var dialogue_lines = GameData.trigger_boxes[GameData.currentbounds].dialoguefile
+var speakername = GameData.trigger_boxes[GameData.currentbounds].speakername
+var Background = load(GameData.trigger_boxes[GameData.currentbounds].Background)
 
 
 
 func _ready():
 	print(GameData.currentbounds)
 	print(dialogue_lines)
-	dialogue_manager.start_dialogue(dialogue_lines, "john")
+	dialogue_manager.start_dialogue(dialogue_lines, speakername)
+	print(Background)
+	background.texture = Background
 
 
 func _on_button_pressed():

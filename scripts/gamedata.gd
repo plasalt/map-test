@@ -23,7 +23,10 @@ func _ready():
 		"daily_reset": -1,
 		"reset_time": -1,
 		"reset_distance": 200,
-		"dialoguefile": "res://jsons/dialogue/john.json"
+		"dialoguefile": "res://jsons/dialogue/john.json",
+		"speakername": "test",
+		"Background": "res://textures/Backgrounds/Background1.png"
+		
 	},
 	{
 		"rect": Rect2(Vector2(100, 100), Vector2(100, 100)),
@@ -33,7 +36,9 @@ func _ready():
 		"daily_reset": -1,
 		"reset_time": -1,
 		"reset_distance": 200,
-		"dialoguefile": "res://jsons/dialogue/startingzone.json"
+		"dialoguefile": "res://jsons/dialogue/startingzone.json",
+		"speakername": "test",
+		"Background": "res://textures/Backgrounds/Background1.png"
 	}
 ]
 	pass
