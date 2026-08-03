@@ -13,6 +13,13 @@ grow_vertical = 2
 script = ExtResource("1_tr15w")
 dialogue_manager = NodePath("dialogue manager")
 
+[node name="Background" type="TextureRect" parent="." unique_id=1182291087]
+z_index = -1
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+expand_mode = 3
+
 [node name="dialogue manager" type="CanvasLayer" parent="." unique_id=163235494 node_paths=PackedStringArray("text_label")]
 script = ExtResource("2_mgpxb")
 text_label = NodePath("text")
@@ -58,6 +65,7 @@ offset_bottom = 195.0
 grow_horizontal = 2
 
 [node name="Button" type="Button" parent="." unique_id=1439397494]
+z_index = 1
 layout_mode = 0
 offset_top = 4.0
 offset_right = 79.0
@@ -65,6 +73,7 @@ offset_bottom = 35.0
 text = "exit"
 
 [node name="nextline" type="Button" parent="." unique_id=979618166]
+z_index = 1
 layout_mode = 0
 offset_left = 200.0
 offset_top = 1.0
@@ -72,13 +81,6 @@ offset_right = 264.0
 offset_bottom = 37.0
 text = "next line
 "
-
-[node name="Background" type="TextureRect" parent="." unique_id=1182291087]
-z_index = -1
-layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 647.0
-expand_mode = 3
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="nextline" to="." method="_on_nextline_pressed"]

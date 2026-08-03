@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbwma5cmh73aw" path="res://scenes/player.tscn" id="3_qtu10"]
 [ext_resource type="Script" uid="uid://cjsmpi55pc76w" path="res://scripts/bounds.gd" id="5_tjwpk"]
 [ext_resource type="Script" uid="uid://c7n7xn0x1cquk" path="res://scripts/sceneswitcher.gd" id="6_lpubu"]
+[ext_resource type="Script" uid="uid://cvdni3p4larpv" path="res://scenes/cam.gd" id="7_lt2xq"]
 
 [node name="Control" type="Control" unique_id=1424041087 node_paths=PackedStringArray("clock")]
 layout_mode = 3
@@ -19,26 +20,12 @@ clock = NodePath("Gameclock")
 
 [node name="Gameclock" parent="." unique_id=843309788 instance=ExtResource("2_ee4bf")]
 
-[node name="cords" type="Label" parent="." unique_id=1050385732]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="marker" parent="." unique_id=305016637 instance=ExtResource("2_62e2m")]
 position = Vector2(677, 221)
 
 [node name="CharacterBody2D" parent="." unique_id=1281983220 node_paths=PackedStringArray("clock") instance=ExtResource("3_qtu10")]
 position = Vector2(372, 106)
 clock = NodePath("../Gameclock")
-
-[node name="time" type="Label" parent="." unique_id=44205679]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
 
 [node name="bounds" type="Node" parent="." unique_id=1214889528 node_paths=PackedStringArray("player", "clock")]
 script = ExtResource("5_tjwpk")
@@ -48,3 +35,25 @@ clock = NodePath("../Gameclock")
 [node name="sceneswitcher" type="Node" parent="." unique_id=2081893477 node_paths=PackedStringArray("bounds")]
 script = ExtResource("6_lpubu")
 bounds = NodePath("../bounds")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1533877721]
+position = Vector2(579, 320)
+limit_left = -100
+limit_top = -100
+limit_right = 100
+limit_bottom = 100
+script = ExtResource("7_lt2xq")
+
+[node name="time" type="Label" parent="Camera2D" unique_id=44205679]
+offset_left = 533.0
+offset_top = -323.0
+offset_right = 573.0
+offset_bottom = -300.0
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="cords" type="Label" parent="Camera2D" unique_id=1050385732]
+offset_left = -566.0
+offset_top = -320.0
+offset_right = -526.0
+offset_bottom = -297.0
