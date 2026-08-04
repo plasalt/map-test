@@ -21,6 +21,8 @@ clock = NodePath("Gameclock")
 
 [node name="CharacterBody2D" parent="." unique_id=1281983220 node_paths=PackedStringArray("clock") instance=ExtResource("3_qtu10")]
 position = Vector2(372, 106)
+step_size = null
+speed = null
 clock = NodePath("../Gameclock")
 
 [node name="bounds" type="Node" parent="." unique_id=1214889528 node_paths=PackedStringArray("player", "clock")]
@@ -34,7 +36,6 @@ bounds = NodePath("../bounds")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1533877721]
 position = Vector2(579, 320)
-limit_enabled = false
 limit_left = -100
 limit_top = -100
 limit_right = 100

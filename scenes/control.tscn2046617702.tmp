@@ -34,7 +34,6 @@ bounds = NodePath("../bounds")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1533877721]
 position = Vector2(579, 320)
-limit_enabled = false
 limit_left = -100
 limit_top = -100
 limit_right = 100

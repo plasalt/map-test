@@ -8,15 +8,15 @@ var moving := false
 @onready var timer = $Timer
 
 
-
-
-func _ready():
-	print("test")
-
 func move_to(pos: Vector2):
 	target_position = pos
 	moving = true
 	timer.start()
+
+func stop_move():
+	moving = false
+	velocity = Vector2.ZERO
+	timer.stop
 
 func _on_timer_timeout():
 

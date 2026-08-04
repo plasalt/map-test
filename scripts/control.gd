@@ -21,27 +21,30 @@ func _process(delta):
 	
 	cords.text = str(player.global_position.floor())
 	time.text = str(clock.formate_time())
-	
-	if is_instance_valid(marker):
-		player.target_position = marker.global_position
-		player.move_to(marker.global_position)
-		
 	pass
 
 func _input(event):
 	if event is InputEventMouseButton \
 	and event.pressed \
 	and event.button_index == MOUSE_BUTTON_LEFT:
-
 		var click_pos = get_global_mouse_position()
-		
 		var click_radius = 19.0
+		
 		if is_instance_valid(marker):
+			print(marker.global_position)
 			if click_pos.distance_to(marker.global_position) <= click_radius:
 				marker.queue_free()
+				player.stop_move()
 				return
+			else:
+				marker.global_position = click_pos
+				player.target_position = click_pos
+				player.move_to(click_pos)
 		else: 
 			marker = Marker.instantiate()
-			marker.global
+			add_child(marker)
+			marker.global_position = click_pos
+			player.target_position = click_pos
+			player.move_to(click_pos)
 			
 			
