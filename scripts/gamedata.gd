@@ -5,6 +5,7 @@ extends Node
 var playerpos = Vector2.ZERO
 var time = 0000
 var trigger_boxes := []
+var playerdata := []
 var currentbounds := 0
 
 
@@ -39,6 +40,8 @@ func _ready():
 		"dialoguefile": "res://jsons/dialogue/startingzone.json",
 		"speakername": "test",
 		"Background": "res://textures/Backgrounds/Background1.png"
-	}
-]
+	}]
+	playerdata = [
+		
+	]
 	pass

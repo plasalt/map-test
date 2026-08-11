@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://i4bpeom08ftr"]
+
+[ext_resource type="Script" uid="uid://nap75v74fbpp" path="res://scripts/combat.gd" id="1_qajva"]
+[ext_resource type="Texture2D" uid="uid://5s8jjpf1ia7f" path="res://icon.svg" id="2_aic3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lg0q"]
+bg_color = Color(0.7411765, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epp6s"]
+bg_color = Color(0.31446773, 0.70664334, 0, 1)
+
+[node name="combat" type="Control" unique_id=919373501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qajva")
+
+[node name="player" type="Node2D" parent="." unique_id=1668855985]
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1778417886]
+position = Vector2(341, 334)
+texture = ExtResource("2_aic3r")
+
+[node name="playerhpbar" type="ProgressBar" parent="player" unique_id=1827663111]
+offset_left = 246.0
+offset_top = 417.0
+offset_right = 443.0
+offset_bottom = 444.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4lg0q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_epp6s")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="enemy" type="Node2D" parent="." unique_id=1843035224]
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=215631097]
+position = Vector2(867, 332)
+texture = ExtResource("2_aic3r")
+
+[node name="enemyhpbar" type="ProgressBar" parent="enemy" unique_id=242341314]
+offset_left = 808.0
+offset_top = 413.0
+offset_right = 1005.0
+offset_bottom = 440.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4lg0q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_epp6s")
+step = 1.0
+value = 100.0
+show_percentage = false

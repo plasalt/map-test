@@ -7,4 +7,4 @@ func _input(_event):
 	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
 func _process(delta: float) -> void:
-	position += direction * speed * -1 
+	position += direction * speed 
