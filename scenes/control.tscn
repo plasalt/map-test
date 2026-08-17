@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cbwma5cmh73aw" path="res://scenes/player.tscn" id="3_qtu10"]
 [ext_resource type="Script" uid="uid://cjsmpi55pc76w" path="res://scripts/bounds.gd" id="5_tjwpk"]
 [ext_resource type="Script" uid="uid://c7n7xn0x1cquk" path="res://scripts/sceneswitcher.gd" id="6_lpubu"]
-[ext_resource type="Script" uid="uid://cvdni3p4larpv" path="res://scenes/cam.gd" id="7_lt2xq"]
+[ext_resource type="Script" uid="uid://cvdni3p4larpv" path="res://scripts/cam.gd" id="7_lt2xq"]
 
 [node name="Control" type="Control" unique_id=1424041087 node_paths=PackedStringArray("clock")]
 layout_mode = 3

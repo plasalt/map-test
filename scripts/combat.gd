@@ -3,7 +3,9 @@ extends Control
 @onready var enemyhpbar = $enemy/enemyhpbar
 
 
+
 func _ready() -> void:
+	print(GameData.playerdata["hp"])
 	pass
 
 
