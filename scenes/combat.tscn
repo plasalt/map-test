@@ -14,6 +14,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -5.0
+offset_right = 9.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qajva")
@@ -35,10 +39,16 @@ step = 1.0
 value = 100.0
 show_percentage = false
 
+[node name="attackroll" type="Label" parent="player" unique_id=1658408492]
+offset_left = 317.0
+offset_top = 208.0
+offset_right = 357.0
+offset_bottom = 231.0
+
 [node name="enemy" type="Node2D" parent="." unique_id=1843035224]
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=215631097]
-position = Vector2(867, 332)
+position = Vector2(910, 327)
 texture = ExtResource("2_aic3r")
 
 [node name="enemyhpbar" type="ProgressBar" parent="enemy" unique_id=242341314]
@@ -51,3 +61,24 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_epp6s")
 step = 1.0
 value = 100.0
 show_percentage = false
+
+[node name="attackroll" type="Label" parent="enemy" unique_id=1879224487]
+offset_left = 885.0
+offset_top = 204.0
+offset_right = 925.0
+offset_bottom = 227.0
+
+[node name="menu" type="Node2D" parent="." unique_id=907061403]
+
+[node name="attackbutton" type="Button" parent="menu" unique_id=390324310]
+offset_left = 486.0
+offset_top = 505.0
+offset_right = 731.0
+offset_bottom = 559.0
+text = "attack type shi"
+
+[node name="clashmult" type="Label" parent="menu" unique_id=1413845302]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="button_down" from="menu/attackbutton" to="." method="_on_attackbutton_button_down"]
