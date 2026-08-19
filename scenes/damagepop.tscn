@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b6c6itegle12g"]
+
+[ext_resource type="Script" uid="uid://d00fcpo5t6ysg" path="res://scripts/damagepop.gd" id="1_dd55m"]
+
+[node name="damagepop" type="Label" unique_id=1032814042]
+offset_left = 890.0
+offset_top = 411.0
+offset_right = 930.0
+offset_bottom = 434.0
+theme_override_font_sizes/font_size = 24
+script = ExtResource("1_dd55m")

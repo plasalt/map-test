@@ -45,6 +45,12 @@ offset_top = 208.0
 offset_right = 357.0
 offset_bottom = 231.0
 
+[node name="hplabel" type="Label" parent="player" unique_id=582184575]
+offset_left = 319.0
+offset_top = 420.0
+offset_right = 359.0
+offset_bottom = 443.0
+
 [node name="enemy" type="Node2D" parent="." unique_id=1843035224]
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=215631097]
@@ -68,6 +74,12 @@ offset_top = 204.0
 offset_right = 925.0
 offset_bottom = 227.0
 
+[node name="hplabel" type="Label" parent="enemy" unique_id=883236630]
+offset_left = 890.0
+offset_top = 414.0
+offset_right = 930.0
+offset_bottom = 437.0
+
 [node name="menu" type="Node2D" parent="." unique_id=907061403]
 
 [node name="attackbutton" type="Button" parent="menu" unique_id=390324310]
@@ -78,7 +90,9 @@ offset_bottom = 559.0
 text = "attack type shi"
 
 [node name="clashmult" type="Label" parent="menu" unique_id=1413845302]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 589.0
+offset_top = 249.0
+offset_right = 629.0
+offset_bottom = 272.0
 
 [connection signal="button_down" from="menu/attackbutton" to="." method="_on_attackbutton_button_down"]
