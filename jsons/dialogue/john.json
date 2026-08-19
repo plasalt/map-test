@@ -1,1 +1,15 @@
-["test.json","testesting","these is some words for you to read"]
+{
+  "start": {
+	"text": "you finna die",
+	"next": "fight"
+  },
+  "fight": {
+	"enemy": {
+	  "hp": 10,
+	  "damage": 2,
+	  "damagemod": 1,
+	  "name": "nuh"
+	},
+	"event": "combat"
+  }
+}

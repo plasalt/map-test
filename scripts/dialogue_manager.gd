@@ -23,7 +23,17 @@ func start_dialogue(dialogue_file: String, speaker_name: String):
 func show_node():
 	var node = lines[current_node_key]
 	clear_options()
-	await type_line(node["text"])
+	
+	if node.has("text"):
+		await type_line(node["text"])
+	
+	if node.has("enemy"):
+		GameData.encounter = node["enemy"]
+	
+	
+	if node.get("event") == "combat":
+		start_combat()
+		return
 	check_options()
 	
 
@@ -92,3 +102,10 @@ func load_json_file(file_path: String):
 func end_dialogue():
 	active = false
 	get_tree().change_scene_to_file("res://scenes/control.tscn")
+
+func start_combat():
+	
+	active = false
+	get_tree().change_scene_to_file("res://scenes/combat.tscn")
+	print(GameData.encounter)
+	pass

@@ -7,6 +7,7 @@ var time = 0000
 var trigger_boxes := []
 var playerdata := {}
 var currentbounds := 0
+var encounter := {}
 
 
 
@@ -43,6 +44,12 @@ func _ready():
 	]
 	
 	playerdata = {
-		"hp": 100
+		"hp": 100,
+		"name": "jeb"
 	}
-	pass
+	encounter = {
+		"hp": 0,
+		"name": "gobin",
+		"damage": 5,
+		"damage mod": 1
+	}

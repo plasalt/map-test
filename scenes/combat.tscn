@@ -51,6 +51,12 @@ offset_top = 420.0
 offset_right = 359.0
 offset_bottom = 443.0
 
+[node name="name" type="Label" parent="player" unique_id=1218363163]
+offset_left = 318.0
+offset_top = 223.0
+offset_right = 358.0
+offset_bottom = 246.0
+
 [node name="enemy" type="Node2D" parent="." unique_id=1843035224]
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=215631097]
@@ -79,6 +85,12 @@ offset_left = 890.0
 offset_top = 414.0
 offset_right = 930.0
 offset_bottom = 437.0
+
+[node name="name" type="Label" parent="enemy" unique_id=1116223115]
+offset_left = 893.0
+offset_top = 225.0
+offset_right = 933.0
+offset_bottom = 248.0
 
 [node name="menu" type="Node2D" parent="." unique_id=907061403]
 

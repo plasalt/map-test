@@ -11,28 +11,28 @@ const damageeffect = preload("res://scenes/damagepop.tscn")
 @onready var hpplayerlabel = $player/hplabel
 @onready var hpenemylabel = $enemy/hplabel
 
-
-
 var playerroll = 0
 var enemyroll = 0 
-var playerdamagemod = 0
+var playerdamagemod = 5
 var enemydamagemod = 0 
 var phase = 0
 var clashmult = 1.0
 var damage = 0
 var playerbasedamage = 5
 var enemybasedamage = 5
+@onready var playername = $player/name
+@onready var enemyname = $enemy/name
 
 
 func _ready() -> void:
+	playername.text = GameData.playerdata["name"]
+	enemyname.text = GameData.encounter["name"]
 	print(GameData.playerdata["hp"], "player hp")
 	hpplayerlabel.text = str(GameData.playerdata["hp"])
-	hpenemylabel.text = str(100)
-	pass
-
-
-
-func _process(delta: float) -> void:
+	hpenemylabel.text = str(GameData.encounter["hp"])
+	clashlabel.text = str(clashmult)
+	enemydamagemod = GameData.encounter["damagemod"]
+	enemybasedamage = GameData.encounter["damage"]
 	pass
 
 func hurtplayer(damage: int ):
@@ -46,7 +46,10 @@ func hurtenemy(damage: int):
 	hpenemylabel.text = str(int(enemyhpbar.value))
 	spawn_damage_popup(damage, enemyhpbar.global_position)
 	pass
-	
+
+
+
+
 func spawn_damage_popup(amount: int, spawn_pos: Vector2) -> void:
 	if amount <= 0:
 		return
@@ -99,6 +102,7 @@ func _on_attackbutton_button_down() -> void:
 				clashlabel.text = str(clashmult)
 			else:
 				clashmult += 0.5
+				spawn_damage_popup(0.5, clashlabel.global_position)
 				print(damage,"player clash")
 		"enemy":
 			if enemyroll == 20 and diffence > 5: 
@@ -113,15 +117,18 @@ func _on_attackbutton_button_down() -> void:
 				clashlabel.text = str(clashmult)
 			else:
 				clashmult += 0.5
-				print(damage,"enemy hit")
+				spawn_damage_popup(0.5, clashlabel.global_position)
+				print(damage,"enemy clash")
 			pass
 		"none":
 			if enemyroll == 20 and playerroll == 20:
 				clashmult += 2
 				print(damage,"crit clash")
+				spawn_damage_popup(2, clashlabel.global_position)
 			else:
 				clashmult += 0.5
 				print(damage,"clash")
+				spawn_damage_popup(0.5, clashlabel.global_position)
 	pass
 	clashlabel.text = str(clashmult)
 	phase = 3
