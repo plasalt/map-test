@@ -51,5 +51,6 @@ func _ready():
 		"hp": 0,
 		"name": "gobin",
 		"damage": 5,
-		"damage mod": 1
+		"damage mod": 1,
+		"png": ""
 	}

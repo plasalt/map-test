@@ -8,7 +8,8 @@
 	  "hp": 10,
 	  "damage": 2,
 	  "damagemod": 1,
-	  "name": "nuh"
+	  "name": "nuh",
+	  "png": "res://textures/enemies/gobin.png"
 	},
 	"event": "combat"
   }

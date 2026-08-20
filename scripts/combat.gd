@@ -10,6 +10,8 @@ const damageeffect = preload("res://scenes/damagepop.tscn")
 @onready var clashlabel = $menu/clashmult
 @onready var hpplayerlabel = $player/hplabel
 @onready var hpenemylabel = $enemy/hplabel
+@onready var playerpic = $player/Sprite2D
+@onready var enemypic = $enemy/Sprite2D
 
 var playerroll = 0
 var enemyroll = 0 
@@ -33,6 +35,7 @@ func _ready() -> void:
 	clashlabel.text = str(clashmult)
 	enemydamagemod = GameData.encounter["damagemod"]
 	enemybasedamage = GameData.encounter["damage"]
+	enemypic.texture = load(GameData.encounter["png"])
 	pass
 
 func hurtplayer(damage: int ):

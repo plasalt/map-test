@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://i4bpeom08ftr"]
 
 [ext_resource type="Script" uid="uid://nap75v74fbpp" path="res://scripts/combat.gd" id="1_qajva"]
-[ext_resource type="Texture2D" uid="uid://5s8jjpf1ia7f" path="res://icon.svg" id="2_aic3r"]
+[ext_resource type="Texture2D" uid="uid://dkmt7prgsnhqp" path="res://textures/enemies/gobin.png" id="2_qajva"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lg0q"]
 bg_color = Color(0.7411765, 0, 0, 1)
@@ -14,10 +14,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = -5.0
-offset_right = 9.0
-offset_bottom = -5.0
+offset_top = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qajva")
@@ -25,8 +23,9 @@ script = ExtResource("1_qajva")
 [node name="player" type="Node2D" parent="." unique_id=1668855985]
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1778417886]
-position = Vector2(341, 334)
-texture = ExtResource("2_aic3r")
+position = Vector2(336.75003, 321.75003)
+scale = Vector2(12.53125, 10.781249)
+texture = ExtResource("2_qajva")
 
 [node name="playerhpbar" type="ProgressBar" parent="player" unique_id=1827663111]
 offset_left = 246.0
@@ -60,8 +59,9 @@ offset_bottom = 246.0
 [node name="enemy" type="Node2D" parent="." unique_id=1843035224]
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=215631097]
-position = Vector2(910, 327)
-texture = ExtResource("2_aic3r")
+position = Vector2(909, 322.00003)
+scale = Vector2(11.999996, 10.312499)
+texture = ExtResource("2_qajva")
 
 [node name="enemyhpbar" type="ProgressBar" parent="enemy" unique_id=242341314]
 offset_left = 808.0
