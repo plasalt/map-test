@@ -58,10 +58,11 @@ offset_bottom = 246.0
 
 [node name="enemy" type="Node2D" parent="." unique_id=1843035224]
 
-[node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=215631097]
-position = Vector2(909, 322.00003)
-scale = Vector2(11.999996, 10.312499)
-texture = ExtResource("2_qajva")
+[node name="Sprite2D" type="TextureRect" parent="enemy" unique_id=2047017173]
+offset_left = 817.0
+offset_top = 225.0
+offset_right = 991.0
+offset_bottom = 399.0
 
 [node name="enemyhpbar" type="ProgressBar" parent="enemy" unique_id=242341314]
 offset_left = 808.0
@@ -76,9 +77,9 @@ show_percentage = false
 
 [node name="attackroll" type="Label" parent="enemy" unique_id=1879224487]
 offset_left = 885.0
-offset_top = 204.0
+offset_top = 166.0
 offset_right = 925.0
-offset_bottom = 227.0
+offset_bottom = 189.0
 
 [node name="hplabel" type="Label" parent="enemy" unique_id=883236630]
 offset_left = 890.0
@@ -87,10 +88,10 @@ offset_right = 930.0
 offset_bottom = 437.0
 
 [node name="name" type="Label" parent="enemy" unique_id=1116223115]
-offset_left = 893.0
-offset_top = 225.0
-offset_right = 933.0
-offset_bottom = 248.0
+offset_left = 884.0
+offset_top = 196.0
+offset_right = 924.0
+offset_bottom = 219.0
 
 [node name="menu" type="Node2D" parent="." unique_id=907061403]
 

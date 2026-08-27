@@ -3,7 +3,7 @@ extends Node
 @export var dialogue_manager: CanvasLayer
 @onready var background = $Background
 
-var dialogue_lines = GameData.trigger_boxes[GameData.currentbounds].dialoguefile
+var dialogue_lines = GameData.current_dialogue
 var speakername = GameData.trigger_boxes[GameData.currentbounds].speakername
 var Background = load(GameData.trigger_boxes[GameData.currentbounds].Background)
 

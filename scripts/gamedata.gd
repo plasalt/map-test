@@ -44,13 +44,13 @@ func _ready():
 	]
 	
 	playerdata = {
-		"hp": 100,
+		"hp": 150,
 		"name": "jeb"
 	}
 	encounter = {
-		"hp": 0,
+		"hp": 50,
 		"name": "gobin",
 		"damage": 5,
-		"damage mod": 1,
+		"damagemod": 1,
 		"png": ""
 	}

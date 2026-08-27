@@ -22,6 +22,10 @@ var clashmult = 1.0
 var damage = 0
 var playerbasedamage = 5
 var enemybasedamage = 5
+var playerhp = 100
+var enemyhp = 100
+var playermaxhp = 100
+var enemymaxhp = 100
 @onready var playername = $player/name
 @onready var enemyname = $enemy/name
 
@@ -29,9 +33,14 @@ var enemybasedamage = 5
 func _ready() -> void:
 	playername.text = GameData.playerdata["name"]
 	enemyname.text = GameData.encounter["name"]
-	print(GameData.playerdata["hp"], "player hp")
-	hpplayerlabel.text = str(GameData.playerdata["hp"])
-	hpenemylabel.text = str(GameData.encounter["hp"])
+	playerhp = int(GameData.playerdata["hp"])
+	playermaxhp = playerhp
+	enemyhp = int(GameData.encounter["hp"])
+	enemymaxhp = enemyhp
+	hpplayerlabel.text = str(playerhp)
+	hpenemylabel.text = str(enemyhp)
+	playerhpbar.value = 100
+	enemyhpbar.value = 100
 	clashlabel.text = str(clashmult)
 	enemydamagemod = GameData.encounter["damagemod"]
 	enemybasedamage = GameData.encounter["damage"]
@@ -39,17 +48,24 @@ func _ready() -> void:
 	pass
 
 func hurtplayer(damage: int ):
-	playerhpbar.value -= damage
-	hpplayerlabel.text = str(int(playerhpbar.value))
+	playerhp -= damage
+	hpplayerlabel.text = str(playerhp)
+	playerhpbar.value = (float(playerhp) / playermaxhp)*100
 	spawn_damage_popup(damage, playerhpbar.global_position)
 	pass
 	
 func hurtenemy(damage: int):
-	enemyhpbar.value -= damage
-	hpenemylabel.text = str(int(enemyhpbar.value))
+	enemyhp -= damage
+	hpenemylabel.text = str(enemyhp)
+	enemyhpbar.value = (float(enemyhp) / enemymaxhp)*100
 	spawn_damage_popup(damage, enemyhpbar.global_position)
 	pass
 
+func playerwin():
+	GameData.current_dialogue = "res://jsons/dialogue/WIN.json"
+	print(GameData.current_dialogue)
+	get_tree().change_scene_to_file("res://scenes/eventmanager.tscn")
+	pass
 
 
 
@@ -143,4 +159,13 @@ func _on_attackbutton_button_down() -> void:
 		_: 
 			pass
 	damage = 0
+	
+	phase =4
+	if playerhp <= 0:
+		print("player dided")
+	if enemyhp <= 0: 
+		print("enemy slimed") 
+		playerwin()
+	
+	
 	attackbutton.disabled = false
