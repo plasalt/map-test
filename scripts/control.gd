@@ -4,8 +4,8 @@ extends Control
 @onready var marker = $marker
 @onready var bounds = $bounds
 @export var clock: Node
-@onready var time = $Camera2D/time
-@onready var cords = $Camera2D/cords
+@export var time:Label
+@export var cords:Label
 const Marker = preload("res://scenes/marker.tscn")
 
 func _ready():

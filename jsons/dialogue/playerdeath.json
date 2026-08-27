@@ -1,0 +1,10 @@
+{
+	"event": "death",
+	"oof": {
+		"event": "death"
+	},
+	"start": {
+		"next": "oof",
+		"text": "killed by nuh"
+	}
+}

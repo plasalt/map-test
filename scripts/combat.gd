@@ -26,6 +26,7 @@ var playerhp = 100
 var enemyhp = 100
 var playermaxhp = 100
 var enemymaxhp = 100
+
 @onready var playername = $player/name
 @onready var enemyname = $enemy/name
 
@@ -64,6 +65,31 @@ func hurtenemy(damage: int):
 func playerwin():
 	GameData.current_dialogue = "res://jsons/dialogue/WIN.json"
 	print(GameData.current_dialogue)
+	var path = "res://jsons/dialogue/WIN.json"
+	var file = FileAccess.open(path, FileAccess.READ)
+	var json_text = file.get_as_text()
+	var dialogue_data = JSON.parse_string(json_text)
+	dialogue_data["start"]["text"] = "you lowk slimed that %s" % [enemyname.text]
+	var file_write = FileAccess.open(path, FileAccess.WRITE)
+	if file_write:
+		file_write.store_string(JSON.stringify(dialogue_data, "\t")) 
+		file_write.close()
+	get_tree().change_scene_to_file("res://scenes/eventmanager.tscn")
+	pass
+
+func playerdeath():
+	GameData.current_dialogue = "res://jsons/dialogue/playerdeath.json"
+	GameData.speaker_name = "death"
+	print(GameData.current_dialogue)
+	var path = "res://jsons/dialogue/playerdeath.json"
+	var file = FileAccess.open(path, FileAccess.READ)
+	var json_text = file.get_as_text()
+	var dialogue_data = JSON.parse_string(json_text)
+	dialogue_data["start"]["text"] = "killed by %s" % [enemyname.text]
+	var file_write = FileAccess.open(path, FileAccess.WRITE)
+	if file_write:
+		file_write.store_string(JSON.stringify(dialogue_data, "\t")) 
+		file_write.close()
 	get_tree().change_scene_to_file("res://scenes/eventmanager.tscn")
 	pass
 
@@ -77,6 +103,8 @@ func spawn_damage_popup(amount: int, spawn_pos: Vector2) -> void:
 	get_tree().current_scene.add_child(popup)
 	popup.global_position = spawn_pos
 	popup.animate_damage_popup(amount)
+
+
 
 func _on_attackbutton_button_down() -> void:
 	attackbutton.disabled = true
@@ -163,6 +191,7 @@ func _on_attackbutton_button_down() -> void:
 	phase =4
 	if playerhp <= 0:
 		print("player dided")
+		playerdeath()
 	if enemyhp <= 0: 
 		print("enemy slimed") 
 		playerwin()

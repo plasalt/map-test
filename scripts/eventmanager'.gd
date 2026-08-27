@@ -4,7 +4,7 @@ extends Node
 @onready var background = $Background
 
 var dialogue_lines = GameData.current_dialogue
-var speakername = GameData.trigger_boxes[GameData.currentbounds].speakername
+var speakername = GameData.speaker_name
 var Background = load(GameData.trigger_boxes[GameData.currentbounds].Background)
 
 

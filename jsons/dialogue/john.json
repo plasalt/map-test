@@ -3,11 +3,12 @@
 	"text": "you finna die",
 	"next": "fight"
   },
+
   "fight": {
 	"enemy": {
 	  "hp": 10,
-	  "damage": 2,
-	  "damagemod": 1,
+	  "damage": 20,
+	  "damagemod": 10,
 	  "name": "nuh",
 	  "png": "res://textures/enemies/gobin.png"
 	},

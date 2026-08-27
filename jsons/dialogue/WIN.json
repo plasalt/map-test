@@ -1,6 +1,6 @@
 {
-  "start": {
-	"text": "you lowk slimed that chud",
-	"next": "end"
-  },
+	"start": {
+		"next": "end",
+		"text": "you lowk slimed that nuh"
+	}
 }

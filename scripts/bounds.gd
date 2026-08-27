@@ -65,6 +65,7 @@ func firetrigger(id : int, p : BoxTrigger):
 	GameData.current_dialogue = p.dialogue
 	GameData.currentbounds = id
 	GameData.current_dialogue = GameData.trigger_boxes[GameData.currentbounds].dialoguefile
+	GameData.speaker_name = GameData.trigger_boxes[GameData.currentbounds].speakername
 	save_triggers_to_gamedata()
 	
 	

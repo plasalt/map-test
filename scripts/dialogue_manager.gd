@@ -35,7 +35,8 @@ func show_node():
 		start_combat()
 		return
 	check_options()
-	
+	if node.get("event") == "death":
+		deathscreen()
 
 func type_line(line: String):
 	is_typing = true
@@ -108,4 +109,9 @@ func start_combat():
 	active = false
 	get_tree().change_scene_to_file("res://scenes/combat.tscn")
 	print(GameData.encounter)
+	pass
+
+func deathscreen():
+	active = false
+	get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	pass
