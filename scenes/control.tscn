@@ -17,8 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0fbet")
 clock = NodePath("Gameclock")
-time = NodePath("Camera2D/time")
-cords = NodePath("Camera2D/cords")
+time = NodePath("CanvasLayer/time")
+cords = NodePath("CanvasLayer/cords")
 
 [node name="Gameclock" parent="." unique_id=843309788 instance=ExtResource("2_ee4bf")]
 
@@ -43,20 +43,18 @@ limit_right = 3300
 limit_bottom = 1300
 script = ExtResource("7_lt2xq")
 
-[node name="time" type="Label" parent="Camera2D" unique_id=44205679]
-offset_left = 532.0
-offset_top = -320.0
-offset_right = 572.0
-offset_bottom = -297.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1586366326]
+
+[node name="time" type="Label" parent="CanvasLayer" unique_id=44205679]
+offset_left = 1111.0
+offset_right = 1151.0
+offset_bottom = 23.0
 size_flags_horizontal = 3
 
-[node name="cords" type="Label" parent="Camera2D" unique_id=1050385732]
-offset_left = -566.0
-offset_top = -320.0
-offset_right = -526.0
-offset_bottom = -297.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1586366326]
+[node name="cords" type="Label" parent="CanvasLayer" unique_id=1050385732]
+offset_left = 13.0
+offset_right = 53.0
+offset_bottom = 23.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1410355071]
 z_index = -100
