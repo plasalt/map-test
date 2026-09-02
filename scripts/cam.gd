@@ -8,3 +8,12 @@ func _input(_event):
 
 func _process(delta: float) -> void:
 	position += direction * speed 
+	print(position)
+	if position.y < 300:
+		position.y = 300 
+	if position.y > 1000:
+		position.y = 1000 
+	if position.x < 600:
+		position.x = 600 
+	if position.x > 2700:
+		position.x = 2700 

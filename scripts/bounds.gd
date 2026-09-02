@@ -1,4 +1,5 @@
-extends Node
+extends Node2D
+
 class_name Triggersystem
 
 @export var player = CharacterBody2D
@@ -134,6 +135,12 @@ func resettriggers():
 func manualtriggerreset(id: int):
 	boxes[id].triggered = false
 	pass
+
+func _draw():
+	for p in boxes:
+		draw_rect(p.rect, Color(0, 0, 1, 0.3), true)
+		draw_rect(p.rect, Color.BLUE, false)
+	
 	
 
 	

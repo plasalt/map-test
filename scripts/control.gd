@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @onready var player = $CharacterBody2D
 @onready var marker = $marker
