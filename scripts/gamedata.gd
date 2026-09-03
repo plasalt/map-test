@@ -40,6 +40,18 @@ func _ready():
 		"dialoguefile": "res://jsons/dialogue/startingzone.json",
 		"speakername": "test",
 		"Background": "res://textures/Backgrounds/Background1.png"
+	},
+	{
+		"rect": Rect2(Vector2(1600, 50), Vector2(50, 50)),
+		"triggered": false,
+		"last_trigger_time": 0.0,
+		"trigger_position": Vector2.ZERO,
+		"daily_reset": -1,
+		"reset_time": -1,
+		"reset_distance": 200,
+		"dialoguefile": "res://jsons/dialogue/tungtung.json",
+		"speakername": "tung tung tung sahur",
+		"Background": "res://textures/Backgrounds/Background1.png"
 	}
 	]
 	

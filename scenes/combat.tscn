@@ -63,6 +63,7 @@ offset_left = 817.0
 offset_top = 225.0
 offset_right = 991.0
 offset_bottom = 399.0
+expand_mode = 3
 
 [node name="enemyhpbar" type="ProgressBar" parent="enemy" unique_id=242341314]
 offset_left = 808.0
