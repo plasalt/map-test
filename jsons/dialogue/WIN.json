@@ -1,6 +1,14 @@
 {
 	"start": {
-		"next": "end",
+		"next": "reward",
 		"text": "you lowk slimed that tung tung tung sahur"
+	},
+	"reward": {
+		"next": "end",
+		"event": "reward",
+		"rewards": {
+			"hp": 10,
+			"damagemod": 2
+		}
 	}
 }

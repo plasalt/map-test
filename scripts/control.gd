@@ -3,6 +3,7 @@ extends Node2D
 @onready var player = $CharacterBody2D
 @onready var marker = $marker
 @onready var bounds = $bounds
+@onready var cam = $Camera2D
 @export var clock: Node
 @export var time:Label
 @export var cords:Label
@@ -11,6 +12,8 @@ const Marker = preload("res://scenes/marker.tscn")
 func _ready():
 	player.global_position = GameData.playerpos
 	clock.settime(GameData.time)
+	cam.campos(GameData.playerpos)
+	
 	
 	pass
 

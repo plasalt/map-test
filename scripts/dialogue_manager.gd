@@ -37,6 +37,9 @@ func show_node():
 	check_options()
 	if node.get("event") == "death":
 		deathscreen()
+	if node.get("event") == "reward":
+		GameData.playerdata["hp"] += node["rewards"]["hp"]
+		GameData.playerdata["damagemod"] += node["rewards"]["damagemod"]
 
 func type_line(line: String):
 	is_typing = true

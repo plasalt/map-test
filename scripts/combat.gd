@@ -12,6 +12,7 @@ const damageeffect = preload("res://scenes/damagepop.tscn")
 @onready var hpenemylabel = $enemy/hplabel
 @onready var playerpic = $player/Sprite2D
 @onready var enemypic = $enemy/Sprite2D
+@onready var explosion = $explosion
 
 var playerroll = 0
 var enemyroll = 0 
@@ -63,13 +64,19 @@ func hurtenemy(damage: int):
 	pass
 
 func playerwin():
+	explosion.position = enemypic.position
+	explosion.play("default")
+	
 	GameData.current_dialogue = "res://jsons/dialogue/WIN.json"
 	print(GameData.current_dialogue)
+	await get_tree().create_timer(1).timeout
 	var path = "res://jsons/dialogue/WIN.json"
 	var file = FileAccess.open(path, FileAccess.READ)
 	var json_text = file.get_as_text()
 	var dialogue_data = JSON.parse_string(json_text)
 	dialogue_data["start"]["text"] = "you lowk slimed that %s" % [enemyname.text]
+	dialogue_data["rewards"]["hp"] = 0
+	dialogue_data["rewards"]["damagemod"] = 0
 	var file_write = FileAccess.open(path, FileAccess.WRITE)
 	if file_write:
 		file_write.store_string(JSON.stringify(dialogue_data, "\t")) 
@@ -78,6 +85,9 @@ func playerwin():
 	pass
 
 func playerdeath():
+	explosion.position = playerpic.position
+	explosion.play("default")
+	await get_tree().create_timer(1).timeout
 	GameData.current_dialogue = "res://jsons/dialogue/playerdeath.json"
 	GameData.speaker_name = "death"
 	print(GameData.current_dialogue)
@@ -188,7 +198,7 @@ func _on_attackbutton_button_down() -> void:
 			pass
 	damage = 0
 	
-	phase =4
+	phase = 4
 	if playerhp <= 0:
 		print("player dided")
 		playerdeath()

@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 		position.x = 600 
 	if position.x > 2700:
 		position.x = 2700 
+
+func campos(pos: Vector2):
+	position = pos 

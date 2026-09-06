@@ -57,7 +57,8 @@ func _ready():
 	
 	playerdata = {
 		"hp": 150,
-		"name": "jeb"
+		"name": "jeb",
+		"damagemod": 0 
 	}
 	encounter = {
 		"hp": 50,
