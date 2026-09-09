@@ -1,14 +1,15 @@
 {
+	"reward": {
+		"event": "reward",
+		"next": "end",
+		"rewards": {
+			"damagemod": 0,
+			"hp": 0
+		},
+		"text": "you gained some skills: damagemod + 1, max health + 10"
+	},
 	"start": {
 		"next": "reward",
-		"text": "you lowk slimed that tung tung tung sahur"
-	},
-	"reward": {
-		"next": "end",
-		"event": "reward",
-		"rewards": {
-			"hp": 10,
-			"damagemod": 2
-		}
+		"text": "you lowk slimed that nuh"
 	}
 }

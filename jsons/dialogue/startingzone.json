@@ -12,7 +12,9 @@
   },
   "cautious_end": {
 	"text": "you are a bum",
-	"next": "end"
+	"next": "end",
+	"event": "heal",
+	"heal": 10
   },
   "brave_end": {
 	"text": "yuh gonna die",

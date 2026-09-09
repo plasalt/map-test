@@ -6,11 +6,15 @@
 
   "fight": {
 	"enemy": {
-	  "hp": 10,
-	  "damage": 20,
-	  "damagemod": 10,
-	  "name": "nuh",
-	  "png": "res://textures/enemies/gobin.png"
+	"hp": 100,
+	"damage": 5,
+	"damagemod": 1,
+	"name": "nuh",
+	"png": "res://textures/enemies/gobin.png",
+	"reward": {
+			"damagemod" : 1, 
+			"maxhealth" : 10
+		}
 	},
 	"event": "combat"
   }

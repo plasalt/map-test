@@ -133,7 +133,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 20.0
+"speed": 10.0
 }]
 
 [node name="combat" type="Control" unique_id=919373501]
@@ -240,7 +240,7 @@ offset_bottom = 272.0
 position = Vector2(1371.5, 351.49997)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_d74qw")
-frame = 16
-frame_progress = 0.73004013
+frame = 17
+frame_progress = 1.0
 
 [connection signal="button_down" from="menu/attackbutton" to="." method="_on_attackbutton_button_down"]

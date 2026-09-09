@@ -56,7 +56,9 @@ func _ready():
 	]
 	
 	playerdata = {
-		"hp": 150,
+		"maxhp": 110,
+		"hp": 100,
+		"damage": 5, 
 		"name": "jeb",
 		"damagemod": 0 
 	}
@@ -65,5 +67,9 @@ func _ready():
 		"name": "gobin",
 		"damage": 5,
 		"damagemod": 1,
-		"png": ""
+		"png": "",
+		"reward": {
+			"damagemod" : 1, 
+			"maxhealth" : 10
+		}
 	}

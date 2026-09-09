@@ -21,7 +21,7 @@ var enemydamagemod = 0
 var phase = 0
 var clashmult = 1.0
 var damage = 0
-var playerbasedamage = 500
+var playerbasedamage = 5
 var enemybasedamage = 5
 var playerhp = 100
 var enemyhp = 100
@@ -36,29 +36,33 @@ func _ready() -> void:
 	playername.text = GameData.playerdata["name"]
 	enemyname.text = GameData.encounter["name"]
 	playerhp = int(GameData.playerdata["hp"])
-	playermaxhp = playerhp
+	playermaxhp = int(GameData.playerdata["maxhp"])
+	playerbasedamage = int(GameData.playerdata["damage"])
+	playerdamagemod = int(GameData.playerdata["damagemod"])
 	enemyhp = int(GameData.encounter["hp"])
 	enemymaxhp = enemyhp
-	hpplayerlabel.text = str(playerhp)
-	hpenemylabel.text = str(enemyhp)
-	playerhpbar.value = 100
+	print( "%d/%d" % [playerhp,playermaxhp])
+	hpplayerlabel.text = "%d/%d" % [playerhp,playermaxhp]
+	hpenemylabel.text = "%d/%d" % [enemyhp,enemymaxhp]
+	playerhpbar.value = (float(playerhp) / int(GameData.playerdata["maxhp"]))*100
 	enemyhpbar.value = 100
 	clashlabel.text = str(clashmult)
-	enemydamagemod = GameData.encounter["damagemod"]
+	enemydamagemod = int(GameData.encounter["damagemod"])
 	enemybasedamage = GameData.encounter["damage"]
 	enemypic.texture = load(GameData.encounter["png"])
+	print(GameData.encounter)
 	pass
 
 func hurtplayer(damage: int ):
 	playerhp -= damage
-	hpplayerlabel.text = str(playerhp)
+	hpplayerlabel.text = "%d/%d" % [playerhp,playermaxhp]
 	playerhpbar.value = (float(playerhp) / playermaxhp)*100
 	spawn_damage_popup(damage, playerhpbar.global_position)
 	pass
 	
 func hurtenemy(damage: int):
 	enemyhp -= damage
-	hpenemylabel.text = str(enemyhp)
+	hpenemylabel.text = "%d/%d" % [enemyhp,enemymaxhp]
 	enemyhpbar.value = (float(enemyhp) / enemymaxhp)*100
 	spawn_damage_popup(damage, enemyhpbar.global_position)
 	pass
@@ -69,14 +73,16 @@ func playerwin():
 	
 	GameData.current_dialogue = "res://jsons/dialogue/WIN.json"
 	print(GameData.current_dialogue)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.2).timeout
+	GameData.playerdata["hp"] = playerhp
 	var path = "res://jsons/dialogue/WIN.json"
 	var file = FileAccess.open(path, FileAccess.READ)
 	var json_text = file.get_as_text()
 	var dialogue_data = JSON.parse_string(json_text)
 	dialogue_data["start"]["text"] = "you lowk slimed that %s" % [enemyname.text]
-	dialogue_data["rewards"]["hp"] = 0
-	dialogue_data["rewards"]["damagemod"] = 0
+	dialogue_data["reward"]["text"] = "you gained some skills: damagemod + %s, max health + %d" % [int(GameData.encounter["reward"]["damagemod"]),int(GameData.encounter["reward"]["maxhealth"])]
+	dialogue_data["reward"]["rewards"]["hp"] = 0
+	dialogue_data["reward"]["rewards"]["damagemod"] = 0
 	var file_write = FileAccess.open(path, FileAccess.WRITE)
 	if file_write:
 		file_write.store_string(JSON.stringify(dialogue_data, "\t")) 
@@ -87,7 +93,7 @@ func playerwin():
 func playerdeath():
 	explosion.position = playerpic.position
 	explosion.play("default")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.2).timeout
 	GameData.current_dialogue = "res://jsons/dialogue/playerdeath.json"
 	GameData.speaker_name = "death"
 	print(GameData.current_dialogue)

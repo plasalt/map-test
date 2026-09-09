@@ -34,7 +34,6 @@ func _input(event):
 		var click_radius = 19.0
 		
 		if is_instance_valid(marker):
-			print(marker.global_position)
 			if click_pos.distance_to(marker.global_position) <= click_radius:
 				marker.queue_free()
 				player.stop_move()

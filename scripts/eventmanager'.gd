@@ -23,3 +23,6 @@ func _on_button_pressed():
 
 func _on_nextline_pressed():
 	dialogue_manager.on_button_pressed()
+
+func changebackground(text: String):
+	background.texture = text

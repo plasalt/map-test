@@ -4,6 +4,7 @@ extends Node
 @onready var name_label = $Panel/name
 @onready var button = $Button
 @onready var choices = $VBoxContainer
+@onready var eventmanager = $".."
 
 var typing_speed := 0.1
 var current_node_key : String = "start"
@@ -38,9 +39,16 @@ func show_node():
 	if node.get("event") == "death":
 		deathscreen()
 	if node.get("event") == "reward":
-		GameData.playerdata["hp"] += node["rewards"]["hp"]
+		GameData.playerdata["maxhp"] += node["rewards"]["hp"]
 		GameData.playerdata["damagemod"] += node["rewards"]["damagemod"]
-
+	if node.get("event") == "heal":
+		GameData.playerdata["hp"] += node["heal"]
+		print(GameData.playerdata)
+		if GameData.playerdata["hp"] > GameData.playerdata["maxhp"]:
+			GameData.playerdata["hp"] = GameData.playerdata["maxhp"]  
+	if node.get("event") == "background":
+		eventmanager.changebackground(node["background"])
+		
 func type_line(line: String):
 	is_typing = true
 	text_label.text = ""
