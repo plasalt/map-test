@@ -83,6 +83,8 @@ func playerwin():
 	dialogue_data["reward"]["text"] = "you gained some skills: damagemod + %s, max health + %d" % [int(GameData.encounter["reward"]["damagemod"]),int(GameData.encounter["reward"]["maxhealth"])]
 	dialogue_data["reward"]["rewards"]["hp"] = 0
 	dialogue_data["reward"]["rewards"]["damagemod"] = 0
+	GameData.playerdata["maxhp"] += GameData.encounter["reward"]["maxhealth"]
+	GameData.playerdata["damagemod"] += GameData.encounter["reward"]["damagemod"]
 	var file_write = FileAccess.open(path, FileAccess.WRITE)
 	if file_write:
 		file_write.store_string(JSON.stringify(dialogue_data, "\t")) 

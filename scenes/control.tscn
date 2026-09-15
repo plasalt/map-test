@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://q18eybbxpkyn" path="res://textures/background tiles/parts.png" id="8_1p5nq"]
 [ext_resource type="Texture2D" uid="uid://jswej5l88jmt" path="res://textures/structures.png" id="9_hob4j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hob4j"]
+bg_color = Color(0.7411765, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01bab"]
+bg_color = Color(0.31446773, 0.70664334, 0, 1)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hob4j"]
 texture = ExtResource("7_1p5nq")
 0:0/0 = 0
@@ -143,6 +149,23 @@ size_flags_horizontal = 3
 offset_left = 13.0
 offset_right = 53.0
 offset_bottom = 23.0
+
+[node name="hp" type="ProgressBar" parent="CanvasLayer" unique_id=156811709]
+offset_left = 88.0
+offset_right = 259.0
+offset_bottom = 18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hob4j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_01bab")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/hp" unique_id=749528103]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 2.0
+offset_right = 111.0
+offset_bottom = 25.0
 
 [node name="background" type="TileMap" parent="." unique_id=855229128]
 z_index = -100

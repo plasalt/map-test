@@ -1,33 +1,30 @@
 extends Control
 
 @onready var button: Button = $Button
-var tween: Tween
+@onready var option: Button = $options
+
+# Track individual tweens for each button
+var tweens: Dictionary = {}
 
 func _ready() -> void:
-	# Connect hover signals to functions
-	button.mouse_entered.connect(_on_button_mouse_entered)
-	button.mouse_exited.connect(_on_button_mouse_exited)
+	# Connect signals for both buttons
+	_setup_button_signals(button)
+	_setup_button_signals(option)
 
-func _on_button_mouse_entered() -> void:
-	_animate_button(0.0)
+func _setup_button_signals(btn: Button) -> void:
+	btn.mouse_entered.connect(_animate_button.bind(btn, 0.0))
+	btn.mouse_exited.connect(_animate_button.bind(btn, -15.0))
 
-func _on_button_mouse_exited() -> void:
-	_animate_button(-15.0)
+func _animate_button(btn: Button, target_x: float) -> void:
+	if tweens.has(btn) and tweens[btn].is_running():
+		tweens[btn].kill()
 
-func _animate_button(target_x: float) -> void:
-	# Stop any currently running tween to avoid jitter/fighting
-	if tween and tween.is_running():
-		tween.kill()
-		
-	tween = create_tween()
-	
-	# Set transition style and easing curve
+	var tween = create_tween()
+	tweens[btn] = tween
+
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
-	
-	# Animate position over 0.3 seconds
-	tween.tween_property(button, "position:x", target_x, 0.3)
-	
+	tween.tween_property(btn, "position:x", target_x, 0.3)
+
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/control.tscn")
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/infodump.tscn")

@@ -6,7 +6,7 @@ extends Node
 @onready var choices = $VBoxContainer
 @onready var eventmanager = $".."
 
-var typing_speed := 0.1
+var typing_speed := 0.025
 var current_node_key : String = "start"
 var is_typing := false
 

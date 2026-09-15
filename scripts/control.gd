@@ -4,19 +4,20 @@ extends Node2D
 @onready var marker = $marker
 @onready var bounds = $bounds
 @onready var cam = $Camera2D
+@onready var hp = $CanvasLayer/hp
+@onready var hptext = $CanvasLayer/hp/Label
 @export var clock: Node
-@export var time:Label
-@export var cords:Label
+@export var time: Label
+@export var cords: Label
 const Marker = preload("res://scenes/marker.tscn")
+
+# Set the distance threshold (in pixels) for reaching the marker
+const ARRIVAL_THRESHOLD:  = 10
 
 func _ready():
 	player.global_position = GameData.playerpos
 	clock.settime(GameData.time)
 	cam.campos(GameData.playerpos)
-	
-	
-	pass
-
 
 func _process(delta):
 	bounds.boundingcheck()
@@ -24,7 +25,17 @@ func _process(delta):
 	
 	cords.text = str(player.global_position.floor())
 	time.text = str(clock.formate_time())
-	pass
+	
+	hptext.text = "%d/%d" % [GameData.playerdata["hp"],GameData.playerdata["maxhp"]]
+	hp.value = (float(GameData.playerdata["hp"]) / GameData.playerdata["maxhp"])*100
+	
+	_check_marker_reach()
+
+func _check_marker_reach():
+	if is_instance_valid(marker):
+		if player.global_position.distance_to(marker.global_position) <= ARRIVAL_THRESHOLD:
+			marker.queue_free()
+			player.stop_move()
 
 func _input(event):
 	if event is InputEventMouseButton \
@@ -48,5 +59,3 @@ func _input(event):
 			marker.global_position = click_pos
 			player.target_position = click_pos
 			player.move_to(click_pos)
-			
-			

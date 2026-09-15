@@ -1,0 +1,67 @@
+{
+  "start": {
+	"text": "You stand before the damp entrance of an ancient cave system.",
+	"options": [
+	  {"text": "Enter the Ruby Cave", "target": "ruby_cave"},
+	  {"text": "Go Cave Diving", "target": "cave_diving"}
+	]
+  },
+  "ruby_cave": {
+	"text": "Glowing red crystals light up the walls as you hike down to a T-junction.",
+	"next": "ruby",
+	"event": "background",
+	"background": "res://textures/backgrounds/ruby cave.png"
+  },
+  "cave_diving": {
+	"text": "You dive into the cold underground lake and swim through to a damp T-junction.",
+	"next": "t_junction",
+	"event": "background",
+	"background": "res://textures/backgrounds/smallcave.png"
+  },
+"ruby":{
+	"text": "looking apon the ruby cave a construct appears infront of you and its ready to charge",
+	"event":"combat",
+	"enemy": {
+	  "name": "Rubyconstruct",
+	  "hp": 150,
+	  "damage": 20,
+	  "damagemod": -2,
+	  "png": "res://textures/enemies/rubyconstruct.png",
+	  "reward": {
+		"damagemod": -1,
+		"maxhealth": 70
+	  }
+	},
+},
+  "t_junction": {
+	"text": "You reach a split in the tunnel. Both paths lead toward a chest in the shadows.",
+	"options": [
+	  {"text": "Open the Left Chest", "target": "mimic_encounter"},
+	  {"text": "Open the Right Chest", "target": "real_chest"}
+	]
+  },
+  "mimic_encounter": {
+	"text": "You reach for the lock, but the chest sprouts razor-sharp teeth and roars!",
+	"enemy": {
+	  "name": "Mimic",
+	  "hp": 80,
+	  "damage": 12,
+	  "damagemod": 1,
+	  "png": "res://textures/enemies/mimic.png",
+	  "reward": {
+		"damagemod": 2,
+		"maxhealth": 15
+	  }
+	},
+	"event": "combat"
+  },
+  "real_chest": {
+	"text": "The chest opens smoothly! You find rare equipment that boosts your vitality and strength.",
+	"event": "reward",
+	"rewards": {
+	  "hp": 25,
+	  "damagemod": 2
+	},
+	"next": "end"
+  }
+}

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dxj8kijbnvadx"]
+
+[ext_resource type="Script" uid="uid://qdtjg2h7u3bj" path="res://scripts/infodump.gd" id="1_nqfcq"]
+
+[node name="infodump" type="Control" unique_id=138615501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nqfcq")
+
+[node name="Label" type="Label" parent="." unique_id=2029758192]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 644.0
+theme_override_font_sizes/font_size = 26
+text = "Welcome to the world, This will be a trial of your survival. To play this game use the arrow keys to move around the world. To move your player node use your mouse and click to the player where you want your player node to move to this will create a a movement marker where your player will move towards. Your player node will be the main interactable node which will encounter locations, monsters and rewards. When you encounter a enemy the combat system will start. Combat will work by rolling a number from 1-20 for both you and the enemy. 1-19 are normal hits whereas a 20 is a crit dealing double the damage. Then once these number have been rolled your damage modifier will be added to the rolled number (note: crits only count if you roll a 20 and not when the damage modifier increases the number to a 20+)  then you and enemy will clash. during a clash if you and enemy roll final score are within 5 of each other no damage will be dealt and instead be stored in a clash multiplier. clash multiplier will be added to your final damage calculation. if the difference between the player and enemy is more than the 5 then damage will to dealt to the lower roll
+"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1152898617]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 564.0
+offset_right = 213.0
+offset_bottom = 619.0
+text = "contiune"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

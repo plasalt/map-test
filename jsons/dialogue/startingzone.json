@@ -18,6 +18,8 @@
   },
   "brave_end": {
 	"text": "yuh gonna die",
-	"next": "end"
+	"next": "end",
+	"event": "background",
+	"background": "res://textures/Backgrounds/testbackground.png"
   }
 }

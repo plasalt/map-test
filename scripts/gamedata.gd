@@ -42,7 +42,7 @@ func _ready():
 		"Background": "res://textures/Backgrounds/Background1.png"
 	},
 	{
-		"rect": Rect2(Vector2(1600, 50), Vector2(50, 50)),
+		"rect": Rect2(Vector2(4000, 50), Vector2(20, 20)),
 		"triggered": false,
 		"last_trigger_time": 0.0,
 		"trigger_position": Vector2.ZERO,
@@ -50,8 +50,20 @@ func _ready():
 		"reset_time": -1,
 		"reset_distance": 200,
 		"dialoguefile": "res://jsons/dialogue/tungtung.json",
-		"speakername": "tung tung tung sahur",
-		"Background": "res://textures/Backgrounds/Background1.png"
+		"speakername": "",
+		"Background": "res://textures/Backgrounds/testbackground.png"
+	},
+	{
+		"rect": Rect2(Vector2(2250, 950), Vector2(20, 20)),
+		"triggered": false,
+		"last_trigger_time": 0.0,
+		"trigger_position": Vector2.ZERO,
+		"daily_reset": -1,
+		"reset_time": -1,
+		"reset_distance": -1,
+		"dialoguefile": "res://jsons/dialogue/cave.json",
+		"speakername": "",
+		"Background": "res://textures/Backgrounds/cave.png"
 	}
 	]
 	
