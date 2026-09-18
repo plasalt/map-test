@@ -2,18 +2,18 @@ extends Node
 
 
 
-var playerpos = Vector2.ZERO
+var playerpos = Vector2(500,200)
 var time = 0000
 var trigger_boxes := []
 var playerdata := {}
 var currentbounds := 0
 var encounter := {}
-
-
-
 var current_dialogue = "test"
 var speaker_name = ""
 var portrait = null
+
+const DEFAULT_PATH = "res://data.json"
+const USER_PATH = "user://data.json"
 
 func _ready():
 	trigger_boxes = [
@@ -60,7 +60,7 @@ func _ready():
 		"trigger_position": Vector2.ZERO,
 		"daily_reset": -1,
 		"reset_time": -1,
-		"reset_distance": -1,
+		"reset_distance": 500,
 		"dialoguefile": "res://jsons/dialogue/cave.json",
 		"speakername": "",
 		"Background": "res://textures/Backgrounds/cave.png"

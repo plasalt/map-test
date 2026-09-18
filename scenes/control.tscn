@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://3pgict55k4os" path="res://scenes/GameClock.tscn" id="2_ee4bf"]
 [ext_resource type="PackedScene" uid="uid://cbwma5cmh73aw" path="res://scenes/player.tscn" id="3_qtu10"]
 [ext_resource type="Script" uid="uid://cjsmpi55pc76w" path="res://scripts/bounds.gd" id="5_tjwpk"]
-[ext_resource type="Script" uid="uid://c7n7xn0x1cquk" path="res://scripts/sceneswitcher.gd" id="6_lpubu"]
 [ext_resource type="Texture2D" uid="uid://bvte0gapbsd5d" path="res://textures/background tiles/background.png" id="7_1p5nq"]
 [ext_resource type="Script" uid="uid://cvdni3p4larpv" path="res://scripts/cam.gd" id="7_lt2xq"]
 [ext_resource type="Texture2D" uid="uid://q18eybbxpkyn" path="res://textures/background tiles/parts.png" id="8_1p5nq"]
@@ -126,9 +125,6 @@ script = ExtResource("5_tjwpk")
 player = NodePath("../CharacterBody2D")
 clock = NodePath("../Gameclock")
 
-[node name="sceneswitcher" type="Node" parent="." unique_id=2081893477]
-script = ExtResource("6_lpubu")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1533877721]
 position = Vector2(579, 320)
 limit_left = 0
@@ -151,9 +147,10 @@ offset_right = 53.0
 offset_bottom = 23.0
 
 [node name="hp" type="ProgressBar" parent="CanvasLayer" unique_id=156811709]
-offset_left = 88.0
-offset_right = 259.0
-offset_bottom = 18.0
+offset_left = 119.0
+offset_top = 2.0
+offset_right = 290.0
+offset_bottom = 35.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hob4j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_01bab")
 step = 1.0
@@ -167,6 +164,13 @@ offset_top = 2.0
 offset_right = 111.0
 offset_bottom = 25.0
 
+[node name="exit" type="Button" parent="CanvasLayer" unique_id=1401582845]
+offset_left = 292.0
+offset_top = 2.0
+offset_right = 380.0
+offset_bottom = 33.0
+text = "exit"
+
 [node name="background" type="TileMap" parent="." unique_id=855229128]
 z_index = -100
 tile_set = SubResource("TileSet_epp6s")
@@ -179,3 +183,5 @@ tile_set = SubResource("TileSet_4lg0q")
 rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(4194320, 65536, 0, 1900583, 12, 0, 524371, 393228, 0, 720951, 458764, 0, 1376307, 196620, 0, 1703990, 196620, 0, 1900600, 196620, 0, 1507376, 262156, 0, 1572913, 262156, 0, 1900596, 262156, 0, 1835058, 262156, 0, 2031670, 262156, 0, 1245196, 655372, 0, 1245197, 655372, 0, 1310733, 655372, 0, 1310732, 655372, 0, 524320, 524300, 0, 524321, 524300, 0, 589856, 655372, 0, 589857, 655372, 0, 589858, 655372, 0, 524322, 655372, 0, 524319, 655372, 0, 458784, 65548, 0, 1900614, 131084, 0, 1900612, 393228, 0, 1900611, 393228, 0, 1966148, 393228, 0, 65585, 589836, 0)
+
+[connection signal="button_down" from="CanvasLayer/exit" to="." method="_on_exit_button_down"]

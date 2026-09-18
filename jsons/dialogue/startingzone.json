@@ -1,6 +1,6 @@
 {
   "start": {
-	"text": "Hello, beginner. Welcome to the world.",
+	"text": "Hello, traveller. Welcome to the world.",
 	"next": "warning"
   },
   "warning": {
