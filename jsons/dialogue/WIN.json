@@ -3,13 +3,13 @@
 		"event": "reward",
 		"next": "end",
 		"rewards": {
-			"damagemod": 0,
-			"hp": 0
+			"damagemod": 0.0,
+			"hp": 0.0
 		},
-		"text": "you gained some skills: damagemod + 1, max health + 10"
+		"text": "you gained some skills: damagemod + -1, max health + 70"
 	},
 	"start": {
 		"next": "reward",
-		"text": "you lowk slimed that nuh"
+		"text": "you killed that Ruby construct"
 	}
 }

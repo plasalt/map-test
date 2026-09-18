@@ -1,7 +1,7 @@
 extends Control
 
-const damageeffect = preload("res://scenes/damagepop.tscn")
-
+#constants
+const DAMAGEEFFECT = preload("res://scenes/damagepop.tscn")
 
 #scene varibles 
 @onready var playerhpbar = $player/playerhpbar
@@ -24,7 +24,6 @@ var playerroll = 0
 var enemyroll = 0 
 var playerdamagemod = 5
 var enemydamagemod = 0 
-var phase = 0
 var clashmult = 1.0
 var damage = 0
 var playerbasedamage = 5
@@ -86,7 +85,7 @@ func playerwin():
 	
 	#opens the winning dialogue file
 	#use the writable user:// path instead of res://
-	var path = get_writable_json_path("res://jsons/dialogue/WIN.json")
+	var path = "res://jsons/dialogue/WIN.json"
 	var file = FileAccess.open(path, FileAccess.READ)
 	var json_text = file.get_as_text()
 	var dialogue_data = JSON.parse_string(json_text)
@@ -123,7 +122,7 @@ func playerdeath():
 	
 	#opens the winning dialogue file
 	#use the writable user:// path instead of res://
-	var path = get_writable_json_path("res://jsons/dialogue/playerdeath.json")
+	var path = "res://jsons/dialogue/playerdeath.json"
 	var file = FileAccess.open(path, FileAccess.READ)
 	var json_text = file.get_as_text()
 	var dialogue_data = JSON.parse_string(json_text)
@@ -151,7 +150,7 @@ func spawn_damage_popup(amount: int, spawn_pos: Vector2) -> void:
 		return
 	
 	#spawns the popup
-	var popup = damageeffect.instantiate()
+	var popup = DAMAGEEFFECT.instantiate()
 	
 	#sets the popup as a child so its infomation can be editied
 	get_tree().current_scene.add_child(popup)
@@ -162,25 +161,11 @@ func spawn_damage_popup(amount: int, spawn_pos: Vector2) -> void:
 	#and then applies the animation to the popup 
 	popup.animate_damage_popup(amount)
 
-# Ensures the JSON has a writable copy in user:// and returns that path
-func get_writable_json_path(res_path: String) -> String:
-	var filename = res_path.get_file()
-	var user_path = "user://" + filename
-	
-	if not FileAccess.file_exists(user_path):
-		if FileAccess.file_exists(res_path):
-			DirAccess.copy_absolute(res_path, user_path)
-	return user_path
-
-
 #the main combat function
 func _on_attackbutton_button_down() -> void:
 	
 	#disables the button to start the combat
 	attackbutton.disabled = true
-	
-	#changes the phase to 0 for debugging 
-	phase = 0
 	
 	#rolls a number for both the player and enemy
 	playerroll = randi_range(1,20)
@@ -193,15 +178,9 @@ func _on_attackbutton_button_down() -> void:
 	#waits for 1 second 
 	await get_tree().create_timer(1).timeout
 	
-	#changes the phase to 21
-	phase = 1 
-	
 	#changes the roll and damage modifier to a combind total
 	playerattackroll.text = str(playerroll + playerdamagemod)
 	enemyattackroll.text = str(enemyroll + enemydamagemod)
-	
-	#changes the phase to 2
-	phase = 2
 	
 	#creates temp varibles for storage
 	var dif = ""
@@ -325,9 +304,6 @@ func _on_attackbutton_button_down() -> void:
 	#updates the clash label after all the processing 
 	clashlabel.text = str(clashmult)
 	
-	#changes phase to 3 
-	phase = 3
-	
 	#checks which was the higher roller and matches the damage to the opposition, and checks and passes if the value is invaild
 	match dif:
 		"player": 
@@ -339,9 +315,6 @@ func _on_attackbutton_button_down() -> void:
 			
 	#sets damage for next round to ensure no damage leaking
 	damage = 0
-	
-	#sets phase for 4
-	phase = 4
 	
 	#checks if the player or enemy died and calls its repective functions
 	if playerhp <= 0:

@@ -1,7 +1,5 @@
 extends Node
 
-
-
 var playerpos = Vector2(500,200)
 var time = 0000
 var trigger_boxes := []
@@ -12,13 +10,11 @@ var current_dialogue = "test"
 var speaker_name = ""
 var portrait = null
 
-const DEFAULT_PATH = "res://data.json"
-const USER_PATH = "user://data.json"
 
 func _ready():
 	trigger_boxes = [
 	{
-		"rect": Rect2(Vector2(1000, 100), Vector2(200, 150)),
+		"rect": Rect2(Vector2(1000, 200), Vector2(200, 150)),
 		"triggered": false,
 		"last_trigger_time": 0.0,
 		"trigger_position": Vector2.ZERO,
@@ -27,7 +23,7 @@ func _ready():
 		"reset_distance": 200,
 		"dialoguefile": "res://jsons/dialogue/john.json",
 		"speakername": "test",
-		"Background": "res://textures/Backgrounds/Background1.png"
+		"Background": "res://textures/Backgrounds/testbackground.png"
 	},
 	{
 		"rect": Rect2(Vector2(100, 100), Vector2(100, 100)),
@@ -39,7 +35,7 @@ func _ready():
 		"reset_distance": 200,
 		"dialoguefile": "res://jsons/dialogue/startingzone.json",
 		"speakername": "test",
-		"Background": "res://textures/Backgrounds/Background1.png"
+		"Background": "res://textures/Backgrounds/testbackground.png"
 	},
 	{
 		"rect": Rect2(Vector2(4000, 50), Vector2(20, 20)),
@@ -71,7 +67,7 @@ func _ready():
 		"maxhp": 110,
 		"hp": 100,
 		"damage": 5, 
-		"name": "jeb",
+		"name": "player",
 		"damagemod": 0 
 	}
 	encounter = {

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://i4bpeom08ftr"]
 
 [ext_resource type="Script" uid="uid://nap75v74fbpp" path="res://scripts/combat.gd" id="1_qajva"]
-[ext_resource type="Texture2D" uid="uid://dkmt7prgsnhqp" path="res://textures/enemies/gobin.png" id="2_qajva"]
+[ext_resource type="Texture2D" uid="uid://bqrlvo40gbnxf" path="res://textures/enemies/player.png" id="2_aic3r"]
 [ext_resource type="Texture2D" uid="uid://v16250vjvwx3" path="res://textures/animations/explosion.png" id="3_aic3r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lg0q"]
@@ -152,7 +152,7 @@ script = ExtResource("1_qajva")
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1778417886]
 position = Vector2(336.75003, 321.75003)
 scale = Vector2(12.53125, 10.781249)
-texture = ExtResource("2_qajva")
+texture = ExtResource("2_aic3r")
 
 [node name="playerhpbar" type="ProgressBar" parent="player" unique_id=1827663111]
 offset_left = 246.0
@@ -178,10 +178,10 @@ offset_right = 359.0
 offset_bottom = 443.0
 
 [node name="name" type="Label" parent="player" unique_id=1218363163]
-offset_left = 318.0
-offset_top = 223.0
-offset_right = 358.0
-offset_bottom = 246.0
+offset_left = 307.0
+offset_top = 218.0
+offset_right = 347.0
+offset_bottom = 241.0
 
 [node name="enemy" type="Node2D" parent="." unique_id=1843035224]
 
@@ -228,7 +228,7 @@ offset_left = 486.0
 offset_top = 505.0
 offset_right = 731.0
 offset_bottom = 559.0
-text = "attack type shi"
+text = "Attack"
 
 [node name="clashmult" type="Label" parent="menu" unique_id=1413845302]
 offset_left = 589.0

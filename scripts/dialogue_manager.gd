@@ -15,7 +15,7 @@ var lines : Dictionary = {}
 var active := false
 
 #constants
-const  typing_speed := 0.025
+const  TYPING_SPEED := 0.025
 
 #start dialogue function
 func start_dialogue(dialogue_file: String, speaker_name: String):
@@ -111,7 +111,7 @@ func type_line(line: String):
 			text_label.text += letter
 			
 			#waits the time set in the varible
-			await get_tree().create_timer(typing_speed).timeout
+			await get_tree().create_timer(TYPING_SPEED).timeout
 		
 		#if istyping is false	
 		else:
@@ -159,7 +159,7 @@ func on_option_selected(target: String):
 	current_node_key = target
 	
 	#if the current key is end
-	if current_node_key == "end":\
+	if current_node_key == "end":
 	
 		#end the dialogue
 		end_dialogue()
@@ -213,16 +213,14 @@ func load_json_file(file_path: String):
 		
 		#checks if the json can be prased propely
 		if parsed_result is Dictionary or parsed_result is Array:
-			print("json loaded")
 			return parsed_result
 			
 		#ERROR if the prase doesnt work
 		else:
-			print("Error: Could not parse JSON.")
-	
+				return
 	#ERROR if the file doesnt exist
 	else:
-		print("Error: File does not exist.")
+		return
 	
 #ends the dialogue and changes the scene back to the main map 
 func end_dialogue():

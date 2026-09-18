@@ -19,12 +19,12 @@
 	"background": "res://textures/backgrounds/smallcave.png"
   },
 "ruby":{
-	"text": "looking apon the ruby cave a construct appears infront of you and its ready to charge",
+	"text": "looking apon the ruby cave a construct appears infront of you and it's ready to charge",
 	"event":"combat",
 	"enemy": {
-	  "name": "Rubyconstruct",
+	  "name": "Ruby construct",
 	  "hp": 150,
-	  "damage": 20,
+	  "damage": 10,
 	  "damagemod": -2,
 	  "png": "res://textures/enemies/rubyconstruct.png",
 	  "reward": {

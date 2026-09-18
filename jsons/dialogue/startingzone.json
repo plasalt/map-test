@@ -6,20 +6,20 @@
   "warning": {
 	"text": "It's a dangerous place out here. Will you be careful?",
 	"options": [
-	  {"text": "`yuh i guess", "target": "cautious_end"},
-	  {"text": "hell naw", "target": "brave_end"}
+	  {"text": "I will", "target": "cautious_end"},
+	  {"text": "This world will not scare me", "target": "brave_end"}
 	]
   },
   "cautious_end": {
-	"text": "you are a bum",
+	"text": "You are smarter than most of the adventurers around these parts.",
 	"next": "end",
 	"event": "heal",
-	"heal": 10
+	"heal": 100
   },
   "brave_end": {
-	"text": "yuh gonna die",
+	"text": "Aren't you are brave adventurer, albeit very stupid a brave one.",
 	"next": "end",
-	"event": "background",
-	"background": "res://textures/Backgrounds/testbackground.png"
+	"event": "heal",
+	"heal": 100
   }
 }

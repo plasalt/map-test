@@ -12,7 +12,7 @@ extends Node2D
 @export var cords: Label
 
 #constants
-const Marker = preload("res://scenes/marker.tscn")
+const MARKER = preload("res://scenes/marker.tscn")
 
 # constats
 const ARRIVAL_THRESHOLD:  = 10
@@ -101,7 +101,7 @@ func _input(event):
 		else: 
 			
 			#create a marker
-			marker = Marker.instantiate()
+			marker = MARKER.instantiate()
 			
 			#add the marker as a child so the script can edit the marker values
 			add_child(marker)

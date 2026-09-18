@@ -9,7 +9,7 @@
 	"hp": 100,
 	"damage": 5,
 	"damagemod": 1,
-	"name": "nuh",
+	"name": "gobin",
 	"png": "res://textures/enemies/gobin.png",
 	"reward": {
 			"damagemod" : 1, 
